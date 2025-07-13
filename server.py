@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import os
 
 app = Flask(__name__)
 
@@ -10,8 +11,8 @@ def ping():
 def receive_command():
     data = request.get_json()
     print("Received command:", data)
-    # Here you can log, parse, or forward commands via email API if needed
     return jsonify({"status": "Command received", "data": data})
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get("PORT", 10000))  # Render sets PORT env variable
+    app.run(host="0.0.0.0", port=port)
