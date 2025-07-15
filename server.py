@@ -40,6 +40,17 @@ def get_username():
     return jsonify({"status": "USername Sent","task":task_arr[device_names.index(data["username"])],"path":file_path[device_names.index(data["username"])]})
 
 
+@app.route('/notify', methods=['POST'])
+def notify():
+    global device_names
+    global task_arr 
+    global file_path 
+    data = request.get_json()
+    task_arr[device_names.index(data["username"])] = "idle"
+    file_path[device_names.index(data["username"])] = "null"
+    return jsonify({"status": "done"})
+
+
 
 
     
