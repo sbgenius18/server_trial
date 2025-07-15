@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 import time
 import yagmail
+import os
 EMAIL_USER = "familyphotosparity002@gmail.com"
 EMAIL_PASS = "vsmm hbqg romf phiz"
 SEND_TO = "shreyasbkg1@gmail.com"
