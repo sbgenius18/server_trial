@@ -83,6 +83,8 @@ def get_online_details():
     arr = []
     global device_names
     global device_timeStamps
+    if len(device_names) == 0:
+        return jsonify({"status": "Nobody Online"})
     for i in range(len(device_names)):
         if time.time()-device_timeStamps[i] <= 120:
             arr.append(device_names[i])
