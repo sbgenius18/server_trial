@@ -12,6 +12,10 @@ device_timeStamps = []
 task_arr = []
 file_path = []
 
+@app.route('/ping', methods=['GET'])
+def ping():
+    return "pong", 200
+
 
 @app.route('/get_data', methods=['POST'])
 def get_data():
