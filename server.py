@@ -17,7 +17,7 @@ def ping():
     return "pong", 200
 
 @app.route('/screenshot', methods=['POST'])
-def send_file():
+def screenshot():
     data = request.get_json()
     global device_names
     global device_timeStamps
