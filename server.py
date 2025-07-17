@@ -41,7 +41,7 @@ def get_username():
         device_timeStamps.append(data["timeStamp"])
         task_arr.append("idle")
         file_path.append("null")
-    device_timeStamps[device_names.index(data["username"])] = data["timeStamp"]
+    device_timeStamps[device_names.index(data["username"])] = float(data["timeStamp"])
     print(device_names)
     print(device_timeStamps)
     return jsonify({"status": "USername Sent","task":task_arr[device_names.index(data["username"])],"path":file_path[device_names.index(data["username"])]})
