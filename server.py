@@ -15,7 +15,7 @@ device_timeStamps = []
 task_arr = []
 file_path = []
 temp = 0
-
+CORS(app)
 
 @app.route('/get_data', methods=['POST'])
 def get_data():
@@ -174,6 +174,8 @@ def ping():
     return "pong", 200
 
 if __name__ == '__main__':
+
     port = int(os.environ.get('PORT', 10000))
     app.run(host='0.0.0.0', port=port)
+
 
